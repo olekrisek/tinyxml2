@@ -39,6 +39,7 @@ distribution.
 #   include <cstdio>
 #   include <cstdlib>
 #   include <cstring>
+#   include <string>
 #endif
 #include <stdint.h>
 
@@ -114,8 +115,8 @@ static const int TIXML2_PATCH_VERSION = 0;
 // so there needs to be a limit in place.
 static const int TINYXML2_MAX_ELEMENT_DEPTH = 500;
 
-namespace tinyxml2
-{
+namespace tinyxml2{
+
 class XMLDocument;
 class XMLElement;
 class XMLAttribute;

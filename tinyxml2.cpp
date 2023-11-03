@@ -1202,6 +1202,18 @@ const XMLElement* XMLNode::ToElementWithName( const char* name ) const
     if ( XMLUtil::StringEqual( element->Name(), name ) ) {
        return element;
     }
+    // handle namespace prefixes...
+    // Could not find the tag envelope, if it has namespace prefix, like SOAP-ENV:envelope
+    std::string ThisName ( element->Name());
+    size_t pos = ThisName.rfind(":");
+    if (pos == std::string::npos) {
+        return 0;
+    }
+    ThisName = ThisName.substr(pos+1);
+    if ( XMLUtil::StringEqual( ThisName.c_str(), name ) ) {
+       return element;
+    }
+    
     return 0;
 }
 
